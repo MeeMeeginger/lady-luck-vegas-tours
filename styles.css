@@ -1,0 +1,640 @@
+/* ============================================================
+   LADY LUCK LAS VEGAS TOURS — LV Landing Page 1
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lustria&display=swap');
+
+:root {
+  --accent-red:   #B00F0F;
+  --white:        #ffffff;
+  --black:        #000000;
+  --gold:         #C9A84C;
+  --font-body:    'Playfair Display', serif;
+  --font-head:    'Lustria', serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--black); color: var(--white); overflow-x: hidden; }
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   Full-width, solid black, thin, centered white text
+   ============================================================ */
+.announcement-bar {
+  width: 100%;
+  background: var(--black);
+  padding: 7px 20px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+}
+.announcement-bar p {
+  font-family: var(--font-head);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+.announcement-bar .sep { color: var(--gold); margin: 0 8px; }
+
+/* ============================================================
+   HERO — full viewport, holds the floating nav inside it
+   ============================================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg video {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Dark overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.45) 0%,
+    rgba(0,0,0,0.25) 40%,
+    rgba(0,0,0,0.65) 100%
+  );
+}
+
+/* ============================================================
+   FLOATING NAV BAR
+   - Positioned near top of hero, with margin on all sides
+   - Glassmorphism pill shape with rounded corners
+   - Does NOT touch left, right, or top edges
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: calc(36px + 14px);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: calc(100% - 80px);
+  max-width: 1280px;
+  margin: 0 auto;
+
+  /* Glassmorphism */
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px 0 20px;
+  height: 100px;
+
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+}
+
+/* --- Logo --- */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.navbar-logo img {
+  height: 82px;
+  width: 82px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 14px rgba(201,168,76,0.8)) drop-shadow(0 0 30px rgba(176,15,15,0.5));
+}
+.navbar-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.navbar-logo-text .logo-line1 {
+  font-family: var(--font-head);
+  font-size: 16px;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(201,168,76,0.7);
+}
+.navbar-logo-text .logo-line2 {
+  font-family: var(--font-head);
+  font-size: 32px;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.0;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.8);
+}
+.navbar-logo-text .logo-line3 {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(201,168,76,0.6);
+}
+
+/* --- Menu items --- */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+}
+.navbar-menu li a {
+  font-family: var(--font-head);
+  font-size: 12.5px;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  display: block;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.navbar-menu li a:hover {
+  color: var(--gold);
+}
+
+/* Book Now */
+.navbar-cta {
+  font-family: var(--font-head) !important;
+  font-size: 11.5px !important;
+  letter-spacing: 0.12em !important;
+  color: var(--white) !important;
+  background: var(--accent-red) !important;
+  padding: 9px 20px !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  margin-left: 6px;
+  transition: background 0.2s ease !important;
+}
+.navbar-cta:hover {
+  background: #8a0b0b !important;
+}
+
+/* --- Mobile hamburger --- */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.navbar-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+}
+
+/* ============================================================
+   HERO CONTENT — centered in the hero below the nav
+   ============================================================ */
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 24px;
+  max-width: 860px;
+  width: 100%;
+}
+.hero-eyebrow {
+  font-family: var(--font-head);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(40px, 6.5vw, 82px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.7);
+}
+.hero-title span { color: var(--accent-red); }
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.8vw, 19px);
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 36px;
+  line-height: 1.75;
+  font-style: italic;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--font-head);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--accent-red);
+  padding: 14px 34px;
+  border: 2px solid var(--accent-red);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+.btn-primary:hover { background: #8a0b0b; border-color: #8a0b0b; }
+
+.btn-secondary {
+  font-family: var(--font-head);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: transparent;
+  padding: 14px 34px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: rgba(255,255,255,0.45);
+  font-family: var(--font-head);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: bounce 2.2s infinite;
+}
+.hero-scroll svg {
+  width: 18px; height: 18px;
+  stroke: rgba(255,255,255,0.45);
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+}
+
+/* =============================================
+   TOURS FEATURED SECTION
+   ============================================= */
+.tours-section {
+  background: #ffffff;
+  padding: 72px 100px 80px;
+}
+
+.tours-section-alt {
+  background: #f9f9f9;
+}
+
+.tours-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.tours-stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.tours-stars span {
+  font-size: 28px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.tours-section-title {
+  font-family: var(--font-head);
+  font-size: 36px;
+  color: var(--black);
+  margin: 0 0 14px;
+  letter-spacing: 0.01em;
+}
+
+.tours-section-subtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: #555;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* --- Grid --- */
+.tours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+/* --- Card --- */
+.tour-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tour-card:hover {
+  box-shadow: 0 8px 40px rgba(0,0,0,0.14);
+  transform: translateY(-4px);
+}
+
+/* --- Card Image --- */
+.tour-card-img-wrap {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.tour-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tour-card:hover .tour-card-img {
+  transform: scale(1.04);
+}
+
+/* --- Card Body --- */
+.tour-card-body {
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tour-card-title {
+  font-family: var(--font-head);
+  font-size: 22px;
+  color: var(--black);
+  margin: 0 0 14px;
+  line-height: 1.3;
+}
+
+.tour-card-desc {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: #444;
+  line-height: 1.75;
+  margin: 0 0 24px;
+  flex: 1;
+}
+
+/* --- Meta badges --- */
+.tour-card-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tour-meta-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  flex: 1;
+}
+
+.meta-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.tour-meta-badge div {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.meta-value {
+  font-family: var(--font-head);
+  font-size: 15px;
+  color: var(--black);
+  font-weight: 600;
+}
+
+/* --- Card Buttons --- */
+.tour-card-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.tour-btn-outline {
+  flex: 1;
+  text-align: center;
+  padding: 13px 20px;
+  border: 2px solid var(--accent-red);
+  color: var(--accent-red);
+  background: transparent;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tour-btn-outline:hover {
+  background: var(--accent-red);
+  color: var(--white);
+}
+
+.tour-btn-solid {
+  flex: 1;
+  text-align: center;
+  padding: 13px 20px;
+  background: var(--accent-red);
+  color: var(--white);
+  border: 2px solid var(--accent-red);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.tour-btn-solid:hover {
+  opacity: 0.88;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 860px) {
+  .navbar {
+    width: calc(100% - 32px);
+    padding: 0 16px;
+    height: 70px;
+  }
+  .navbar-menu {
+    display: none;
+    position: absolute;
+    top: calc(70px + 8px);
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .navbar-menu.open { display: flex; }
+  .navbar-menu li { width: 100%; text-align: center; }
+  .navbar-menu li a { padding: 13px 24px; }
+  .navbar-toggle { display: flex; }
+}
+
+@media (max-width: 768px) {
+  .tours-section {
+    padding: 48px 20px 56px;
+  }
+  .tours-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .tours-section-title {
+    font-size: 28px;
+  }
+  .tour-card-img-wrap {
+    height: 220px;
+  }
+}
+
+/* --- Tablet Portrait (768px) --- */
+@media (max-width: 768px) {
+  .hero {
+    height: 100svh;
+    min-height: 480px;
+  }
+  .hero-img {
+    object-position: center 35%;
+  }
+  .hero-title {
+    font-size: clamp(32px, 8vw, 52px);
+  }
+  .hero-subtitle {
+    font-size: 15px;
+  }
+}
+
+/* --- Mobile Landscape --- */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    height: 100svh;
+    min-height: 320px;
+  }
+  .hero-title {
+    font-size: clamp(24px, 6vw, 40px);
+  }
+  .hero-content {
+    padding-top: 60px;
+  }
+}
+
+/* --- Mobile Portrait --- */
+@media (max-width: 480px) {
+  .hero {
+    height: 100svh;
+    min-height: 480px;
+  }
+  .hero-img {
+    object-position: center 30%;
+  }
+  .hero-title {
+    font-size: clamp(28px, 9vw, 44px);
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}

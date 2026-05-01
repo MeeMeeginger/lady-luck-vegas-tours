@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lady Luck Las Vegas Tours</title>
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <p>Free Welcome Drink <span class="sep">•</span> Complimentary Photo Keepsake <span class="sep">•</span> Vegas Memorabilia Gift <span class="sep">•</span> For Every Guest</p>
+  </div>
+
+  <!-- FIXED FLOATING NAV — always visible on scroll -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">
+      <img src="logo.png" alt="Lady Luck Las Vegas Tours" />
+      <div class="navbar-logo-text">
+        <span class="logo-line1">Lady Luck</span>
+        <span class="logo-line2">Las Vegas</span>
+        <span class="logo-line3">Tours</span>
+      </div>
+    </a>
+
+    <div class="navbar-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+
+    <ul class="navbar-menu" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="vegas-resources.html">Vegas Resources</a></li>
+      <li><a href="who-we-are.html">Who We Are</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+      <li><a href="contact-us.html" class="navbar-cta">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO (full page background) -->
+  <section class="hero">
+
+    <!-- Hero background image -->
+    <div class="hero-bg">
+      <img src="Las-Vegas-Panoramic.jpg" alt="Las Vegas Strip at Night" class="hero-img" />
+    </div>
+
+    <!-- Dark overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <span class="hero-eyebrow">Welcome to Las Vegas</span>
+      <h1 class="hero-title">Experience Sin City<br/>Like Never <span>Before</span></h1>
+      <p class="hero-subtitle">Guided tours through the neon lights, hidden gems,<br/>and legendary stories of the Entertainment Capital of the World.</p>
+      <div class="hero-buttons">
+        <a href="experiences.html" class="btn-primary">Explore Our Tours</a>
+        <a href="who-we-are.html" class="btn-secondary">Who We Are</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+      </svg>
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+  <script>
+    const navbar    = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu   = document.getElementById('navMenu');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+  </script>
+
+  <!-- ===== TOURS FEATURED SECTION ===== -->
+  <section class="tours-section">
+    <div class="tours-section-header">
+      <div class="tours-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <h2 class="tours-section-title">Top Rated Las Vegas Tours</h2>
+      <p class="tours-section-subtitle">Premium-guided experiences designed to help you see more, stress less, and feel confident you saw what really matters.</p>
+    </div>
+
+    <div class="tours-grid">
+
+      <!-- CARD 1 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-downtown.jpg" alt="Total Las Vegas Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">TOTAL LAS VEGAS</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">The Ultimate Tour</p>
+          <p class="tour-card-desc">Las Vegas has a way of overwhelming you fast — too many options, too much noise, and suddenly you've spent three days on the Strip without actually seeing it. This tour changes that. We cover the landmarks, the casinos, and the stories that make this city unlike anywhere else on earth, all at a pace that lets you take it in rather than just pass through. Your guide knows where to go, what to skip, and why every stop is worth your time. Come curious, leave knowing you got the real thing. <em>Perfect for first-time visitors, families, and anyone who wants Las Vegas done properly.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">$249 per guest</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">Approx. 4 hours</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-2.jpg" alt="Gambling Expert Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">GAMBLING EXPERT TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">Play Like You Know What You're Doing</p>
+          <p class="tour-card-desc">Las Vegas was built on the felt. But walking into a casino without knowing the games, the odds, or the unwritten rules is how you lose fast and feel lost faster. This guided gambling tour puts you at the tables with someone who actually knows them — from blackjack strategy to craps etiquette, from which slots are worth your time to which ones aren't. Your guide breaks it all down before you play, walks the floor with you, and makes sure every dollar you spend comes with a story worth telling. Come to learn. Stay to win. <em>Perfect for solo travelers, couples, and groups looking to get the most out of their time on the casino floor.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">$249 per guest</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">Approx. 5 hours</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end tours-grid -->
+  </section>
+
+  <!-- ===== TOURS SECTION 2 ===== -->
+  <section class="tours-section tours-section-alt">
+    <div class="tours-grid">
+
+      <!-- CARD 3 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-3.jpg" alt="Las Vegas Fine Dining Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">LAS VEGAS FINE DINING TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">The Ultimate Culinary Experience</p>
+          <p class="tour-card-desc">Las Vegas has become one of the great restaurant cities in the world, and most visitors never find out because they never get past the buffet. This guided fine dining tour changes that. We take you inside the kitchens — figuratively — of the city's most celebrated restaurants, from celebrity chef flagships to the hidden gems the locals actually book months in advance. Your guide knows the menus, the stories behind the chefs, and exactly what to order. This isn't dinner. This is a curated culinary journey through a city that takes food as seriously as it takes its casinos, its shows, and its reputation. <em>Perfect for couples, food enthusiasts, and families looking for a dining experience worth the reservation.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-4.jpg" alt="Local Insider Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">LOCAL INSIDER TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">Experience What Only the Locals Know</p>
+          <p class="tour-card-desc">Every city has two versions of itself — the one on the brochure and the real one. This guided insider tour skips the brochure entirely. We take you to the neighborhoods, the spots, the stories, and the experiences that don't show up on any top-ten list because the locals who love them prefer to keep them that way. Your guide grew up in this city, knows its corners and its characters, and has spent years curating a tour that shows you the Las Vegas that actually exists beneath the neon. Come curious. Leave knowing you saw the real thing. <em>Perfect for repeat visitors, solo travelers, and anyone who's done the Strip and wants something that actually surprises them.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TOURS SECTION 3 ===== -->
+  <section class="tours-section">
+    <div class="tours-grid">
+
+      <!-- CARD 5 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-5.jpg" alt="Bar Hopping Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">BAR HOPPING TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">Immersion into Las Vegas Bubbly Glitz</p>
+          <p class="tour-card-desc">Las Vegas does cocktails the way it does everything on the Strip — bigger, louder, and with zero interest in being ordinary. This guided bar hopping tour takes you through the city's most spectacular bars, from sky-high rooftop lounges with Strip views to tucked-away craft cocktail dens inside casinos that most guests walk right past. Your guide knows the bartenders, the signature pours, and the perfect sequence to make a night out feel like a curated experience rather than a stumble through the dark. Dress well. Order sharp. This tour starts when the sun goes down and doesn't rush you home. <em>Perfect for groups, couples, and night-out travelers who want their evening guided, not guessed at.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-6.jpg" alt="Venetian Gondola Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">VENETIAN GONDOLA TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">Explore the Las Vegas Canals</p>
+          <p class="tour-card-desc">There is something genuinely remarkable about floating through canals beneath a hand-painted Renaissance sky in the middle of the Nevada desert. The Venetian's gondola experience is one of Las Vegas's most iconic and most underappreciated tours — and this guided experience makes sure you don't miss a detail of it. Your guide sets the scene, explains the artistry behind the canal construction, and ensures your gondola ride is everything it's meant to be — unhurried, elegant, and completely unlike anything else this city offers. This is the rare Las Vegas experience that stays with you long after the neon fades. <em>Perfect for couples, families, and first-time visitors who want something genuinely memorable.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TOURS SECTION 4 ===== -->
+  <section class="tours-section tours-section-alt">
+    <div class="tours-grid">
+
+      <!-- CARD 7 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-7.jpg" alt="Vegas VIP Luxury Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">VEGAS VIP LUXURY TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">Luxury Transportation + Extreme Adventure</p>
+          <p class="tour-card-desc">Not every tour is meant to be walked. This VIP luxury tour puts you in premium transportation from the moment it begins — stretch limousines, high-end SUVs, and vehicles that make a statement before you step out. This tour is built around where you go and what you do when you arrive: exclusive access, high-intensity experiences, and an itinerary that puts you in front of the Las Vegas most visitors spend their entire trip looking for and never find. Your guide knows every door in this city, which ones open, and exactly when to walk through them. Book this one when ordinary is not on the table. <em>Perfect for corporate groups, high-end travelers, and families who want Las Vegas delivered at its absolute highest level.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-8.jpg" alt="Las Vegas Shopping Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">LAS VEGAS SHOPPING TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">Where to Shop 'til You Drop</p>
+          <p class="tour-card-desc">Las Vegas is home to some of the most extraordinary retail in the world, and finding it without a guide means spending half your day in the wrong places. This guided shopping tour takes you through the city's premier luxury destinations — from the Forum Shops and the Grand Canal Shoppes to the boutiques that don't advertise because they don't need to. Your guide knows the layouts, the brands, the best times to visit, and the pieces worth the investment. Whether you're hunting haute couture or simply want a masterclass in what this city's retail scene looks like at its best, this tour puts it all directly in front of you. <em>Perfect for solo shoppers, groups, and families looking to make the most of a serious day on their feet.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TOURS SECTION 5 ===== -->
+  <section class="tours-section">
+    <div class="tours-grid">
+
+      <!-- CARD 9 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-9.jpg" alt="Vegas Midnight Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">VEGAS MIDNIGHT TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">The Las Vegas Verve</p>
+          <p class="tour-card-desc">Las Vegas at midnight is a different city entirely. The crowds have found their rhythm, the lights are at full intensity, and the energy on the Strip reaches something close to electric. This guided midnight tour is designed for the traveler who wants to experience Las Vegas at its absolute peak — not as a tourist passing through, but as someone who understands what they're standing in the middle of. Your guide navigates the night with you, pointing out what's worth seeing, what's worth skipping, and what only reveals itself after dark. This tour doesn't wind down. It winds up. <em>Perfect for groups and night-culture travelers who want the city at full volume.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 10 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-10.jpg" alt="Vegas Sunrise Tour" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">VEGAS SUNRISE TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">Tour the City That Never Sleeps</p>
+          <p class="tour-card-desc">Most people sleep through the best hour Las Vegas offers. Just before dawn, when the neon is still burning against a sky turning from black to violet to gold, the Strip belongs to almost no one — and it is breathtaking. This guided sunrise tour takes you through a city caught between its last night and its next morning, past landmarks and viewpoints that look unlike anything you'll see at any other hour. Your guide knows exactly where to stand and when, making this a tour that rewards early risers with moments they'll spend years trying to describe. Set the alarm. It's worth it. <em>Perfect for photographers, couples, and travelers who want Las Vegas entirely to themselves.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== TOURS SECTION 6 ===== -->
+  <section class="tours-section tours-section-alt">
+    <div class="tours-grid">
+
+      <!-- CARD 11 -->
+      <div class="tour-card">
+        <div class="tour-card-img-wrap">
+          <img src="Tour-package-11.jpg" alt="Family Fun Tour Las Vegas" class="tour-card-img" />
+        </div>
+        <div class="tour-card-body">
+          <h3 class="tour-card-title">FAMILY FUN TOUR</h3>
+          <p class="tour-card-subtitle" style="font-size:0.75em; letter-spacing:0.12em; text-transform:uppercase; color:#9a7c3f; margin:0 0 12px 0; font-weight:600;">Las Vegas Made for the Whole Family</p>
+          <p class="tour-card-desc">Las Vegas is a lot of things — and one of them, done right, is one of the best family destinations in the country. This guided family tour is built specifically for travelers who want a Las Vegas experience that works for every age in the group. We take you to the attractions, the spectacles, and the only-in-Vegas moments that genuinely land with kids and adults in equal measure — no casinos, no detours, no awkward explanations. Your guide keeps the pace right, the energy high, and the itinerary sharp, so nobody is bored, nobody is lost, and everyone goes home with stories. Las Vegas showed up for your family. Let us show you how. <em>Perfect for families with children of all ages, multigenerational groups, and first-time visitors who want a guided experience built around everyone in the group.</em></p>
+          <div class="tour-card-meta">
+            <div class="tour-meta-badge">
+              <span class="meta-icon">🏷</span>
+              <div>
+                <span class="meta-label">PRICE</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+            <div class="tour-meta-badge">
+              <span class="meta-icon">⏱</span>
+              <div>
+                <span class="meta-label">DURATION</span>
+                <span class="meta-value">TBD</span>
+              </div>
+            </div>
+          </div>
+          <div class="tour-card-buttons">
+            <a href="experiences.html" class="tour-btn-outline">Learn More</a>
+            <a href="contact-us.html" class="tour-btn-solid">Book Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
