@@ -4,15 +4,15 @@
    Tablet Portrait | Tablet Landscape | Laptop | Desktop
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lustria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lustria&display=swap');
 
 :root {
   --accent-red:   #B00F0F;
   --white:        #ffffff;
   --black:        #000000;
   --gold:         #C9A84C;
-  --font-body:    'Playfair Display', serif;
-  --font-head:    'Lustria', serif;
+  --font-head:    'Anton', sans-serif;        /* H1, H2, H3, nav — Anton */
+  --font-body:    'Plus Jakarta Sans', sans-serif; /* body text, subtitles, labels */
   --announce-h:   30px;
   --navbar-h:     100px;
 }
@@ -24,6 +24,13 @@ body {
   background: var(--black);
   color: var(--white);
   overflow-x: hidden;
+}
+
+/* Universal heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 /* ============================================================
@@ -42,7 +49,7 @@ body {
   height: var(--announce-h);
 }
 .announcement-bar p {
-  font-family: var(--font-head);
+  font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -51,11 +58,12 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 500;
 }
 .announcement-bar .sep { color: var(--gold); margin: 0 8px; }
 
 /* ============================================================
-   HERO — full viewport
+   HERO
    ============================================================ */
 .hero {
   position: relative;
@@ -67,12 +75,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-img {
   position: absolute;
   inset: 0;
@@ -81,7 +84,6 @@ body {
   object-fit: cover;
   object-position: center center;
 }
-
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -95,7 +97,7 @@ body {
 }
 
 /* ============================================================
-   NAVBAR — floating glassmorphism pill
+   NAVBAR
    ============================================================ */
 .navbar {
   position: fixed;
@@ -106,22 +108,18 @@ body {
   width: calc(100% - 80px);
   max-width: 1280px;
   margin: 0 auto;
-
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 16px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px 0 20px;
   height: var(--navbar-h);
-
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
-
 .navbar.scrolled {
   background: rgba(0, 0, 0, 0.72);
   backdrop-filter: blur(28px);
@@ -150,7 +148,7 @@ body {
 }
 .navbar-logo-text .logo-line1 {
   font-family: var(--font-head);
-  font-size: 16px;
+  font-size: 14px;
   color: var(--gold);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -158,7 +156,7 @@ body {
 }
 .navbar-logo-text .logo-line2 {
   font-family: var(--font-head);
-  font-size: 32px;
+  font-size: 28px;
   color: var(--white);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -172,6 +170,7 @@ body {
   letter-spacing: 0.35em;
   text-transform: uppercase;
   text-shadow: 0 0 10px rgba(201,168,76,0.6);
+  font-weight: 500;
 }
 
 /* Menu */
@@ -182,8 +181,8 @@ body {
   list-style: none;
 }
 .navbar-menu li a {
-  font-family: var(--font-head);
-  font-size: 12.5px;
+  font-family: var(--font-body);
+  font-size: 12px;
   color: var(--white);
   text-decoration: none;
   letter-spacing: 0.1em;
@@ -192,12 +191,14 @@ body {
   display: block;
   white-space: nowrap;
   transition: color 0.2s ease;
+  font-weight: 600;
 }
 .navbar-menu li a:hover { color: var(--gold); }
 
 .navbar-cta {
-  font-family: var(--font-head) !important;
+  font-family: var(--font-body) !important;
   font-size: 11.5px !important;
+  font-weight: 700 !important;
   letter-spacing: 0.12em !important;
   color: var(--white) !important;
   background: var(--accent-red) !important;
@@ -226,7 +227,6 @@ body {
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-/* Animated X when open */
 .navbar-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .navbar-toggle.active span:nth-child(2) { opacity: 0; }
 .navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -242,36 +242,40 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
   padding: 0 24px;
-  max-width: 860px;
+  max-width: 900px;
   width: 100%;
 }
-.hero-eyebrow {
-  font-family: var(--font-head);
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
-  display: block;
-}
+
+/* H1 — Anton, ALL CAPS, universal */
 .hero-title {
   font-family: var(--font-head);
-  font-size: clamp(38px, 6.5vw, 82px);
-  font-weight: 400;
+  font-size: clamp(42px, 7vw, 90px);
+  font-weight: 400; /* Anton is naturally bold */
   color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 18px;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 20px;
   text-shadow: 0 2px 24px rgba(0,0,0,0.7);
+  letter-spacing: 0.02em;
 }
-.hero-title span { color: var(--accent-red); }
+/* 'Before' — white (overrides red) */
+.hero-title span {
+  color: var(--white);
+}
+
+/* H2 — subtitle — capitalized sentence case, no italic, slightly larger */
 .hero-subtitle {
   font-family: var(--font-body);
-  font-size: clamp(14px, 1.8vw, 19px);
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 36px;
-  line-height: 1.75;
-  font-style: italic;
+  font-size: clamp(16px, 1.9vw, 21px);
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 38px;
+  line-height: 1.7;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.01em;
 }
+
 .hero-buttons {
   display: flex;
   gap: 16px;
@@ -279,8 +283,9 @@ body {
   flex-wrap: wrap;
 }
 .btn-primary {
-  font-family: var(--font-head);
+  font-family: var(--font-body);
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--white);
@@ -294,8 +299,9 @@ body {
 .btn-primary:hover { background: #8a0b0b; border-color: #8a0b0b; }
 
 .btn-secondary {
-  font-family: var(--font-head);
+  font-family: var(--font-body);
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--white);
@@ -307,33 +313,6 @@ body {
   transition: border-color 0.25s ease, color 0.25s ease;
 }
 .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-
-/* Scroll indicator */
-.hero-scroll {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  color: rgba(255,255,255,0.45);
-  font-family: var(--font-head);
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  animation: bounce 2.2s infinite;
-}
-.hero-scroll svg {
-  width: 18px; height: 18px;
-  stroke: rgba(255,255,255,0.45);
-}
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(7px); }
-}
 
 /* ============================================================
    TOURS SECTION
@@ -359,20 +338,27 @@ body {
   color: var(--gold);
   line-height: 1;
 }
+
+/* H2 — section title: Anton, uppercase, black */
 .tours-section-title {
   font-family: var(--font-head);
-  font-size: 36px;
+  font-size: 38px;
   color: var(--black);
   margin: 0 0 14px;
-  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
+
+/* Section subtitle — sentence case, no italic */
 .tours-section-subtitle {
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 17px;
   color: #555;
   max-width: 620px;
   margin: 0 auto;
   line-height: 1.7;
+  font-style: normal;
+  font-weight: 400;
 }
 
 /* Grid */
@@ -400,7 +386,6 @@ body {
   transform: translateY(-4px);
 }
 
-/* Card Image */
 .tour-card-img-wrap {
   width: 100%;
   height: 260px;
@@ -415,20 +400,35 @@ body {
 }
 .tour-card:hover .tour-card-img { transform: scale(1.04); }
 
-/* Card Body */
 .tour-card-body {
   padding: 28px 28px 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
+
+/* H3 card title — Anton, uppercase */
 .tour-card-title {
   font-family: var(--font-head);
   font-size: 22px;
   color: var(--black);
-  margin: 0 0 14px;
-  line-height: 1.3;
+  margin: 0 0 6px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
+
+/* Card subtitle — gold, small caps, body font */
+.tour-card-subtitle {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9a7c3f;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
 .tour-card-desc {
   font-family: var(--font-body);
   font-size: 14.5px;
@@ -436,6 +436,7 @@ body {
   line-height: 1.75;
   margin: 0 0 24px;
   flex: 1;
+  font-weight: 400;
 }
 
 /* Meta badges */
@@ -467,17 +468,15 @@ body {
   text-transform: uppercase;
 }
 .meta-value {
-  font-family: var(--font-head);
+  font-family: var(--font-body);
   font-size: 15px;
   color: var(--black);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Card Buttons */
-.tour-card-buttons {
-  display: flex;
-  gap: 12px;
-}
+.tour-card-buttons { display: flex; gap: 12px; }
+
 .tour-btn-outline {
   flex: 1;
   text-align: center;
@@ -487,9 +486,9 @@ body {
   background: transparent;
   border-radius: 6px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease;
@@ -506,9 +505,9 @@ body {
   border: 2px solid var(--accent-red);
   border-radius: 6px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   transition: background 0.2s ease, opacity 0.2s ease;
@@ -518,106 +517,455 @@ body {
 
 
 /* ============================================================
-   RESPONSIVE BREAKPOINTS
-   ============================================================
-
-   1. Desktop / Large       → > 1280px  (base styles above)
-   2. Laptop                → 1025px – 1280px
-   3. Tablet Landscape      → 769px  – 1024px
-   4. Tablet Portrait       → 600px  – 768px
-   5. Mobile Landscape      → 480px  – 599px  + orientation:landscape
-   6. Mobile Portrait       → ≤ 479px
-
+   FOOTER CONTAINER 1 — Medium Gray
    ============================================================ */
+.footer-c1 {
+  background: #3a3a3a;
+  padding: 64px 80px 56px;
+}
+.footer-c1-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Footer column titles */
+.footer-col-title {
+  font-family: var(--font-head);
+  font-size: 16px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+}
+
+/* Tour list */
+.footer-tour-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-tour-list li a {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-tour-list li a::before {
+  content: '›';
+  color: var(--gold);
+  font-size: 16px;
+  line-height: 1;
+}
+.footer-tour-list li a:hover { color: var(--gold); }
+
+/* Footer logo col */
+.footer-col-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
+.footer-logo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.footer-logo-img {
+  height: 90px;
+  width: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 14px rgba(201,168,76,0.7));
+}
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+.footer-logo-line1 {
+  font-family: var(--font-head);
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.footer-logo-line2 {
+  font-family: var(--font-head);
+  font-size: 26px;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+.footer-logo-line3 {
+  font-family: var(--font-body);
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+.footer-nav a {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.footer-nav a:hover { color: var(--gold); }
+
+/* Contact col */
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.footer-contact-list li {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.footer-contact-icon { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+.footer-contact-list li a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-contact-list li a:hover { color: var(--gold); }
+
+/* Footer Book Now button — matches universal button style */
+.footer-book-btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--accent-red);
+  padding: 13px 32px;
+  border: 2px solid var(--accent-red);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.25s ease;
+  width: 100%;
+  text-align: center;
+}
+.footer-book-btn:hover { background: #8a0b0b; border-color: #8a0b0b; }
 
 
 /* ============================================================
-   2. LAPTOP  (1025px – 1280px)
+   FOOTER CONTAINER 2 — Dark Gray: Form + Map
    ============================================================ */
+.footer-c2 {
+  background: #252525;
+  padding: 56px 80px;
+}
+.footer-c2-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.footer-c2-title {
+  font-family: var(--font-head);
+  font-size: 22px;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+.footer-c2-subtitle {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Form */
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.footer-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.footer-input,
+.footer-textarea {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--white);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  width: 100%;
+  font-weight: 400;
+}
+.footer-input::placeholder,
+.footer-textarea::placeholder {
+  color: rgba(255,255,255,0.35);
+}
+.footer-input:focus,
+.footer-textarea:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,0.1);
+}
+.footer-input-full { width: 100%; }
+.footer-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.footer-submit-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--accent-red);
+  border: 2px solid var(--accent-red);
+  border-radius: 4px;
+  padding: 13px 28px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  align-self: flex-start;
+  width: 100%;
+}
+.footer-submit-btn:hover { background: #8a0b0b; border-color: #8a0b0b; }
+
+/* Map */
+.footer-map-wrap {
+  width: 100%;
+  height: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.footer-map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+
+/* ============================================================
+   FOOTER CONTAINER 3 — Black: Newsletter + Copyright
+   ============================================================ */
+.footer-c3 {
+  background: var(--black);
+  padding: 44px 80px 36px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.footer-c3-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+}
+.footer-newsletter-text { flex: 1; min-width: 240px; }
+.footer-newsletter-title {
+  font-family: var(--font-head);
+  font-size: 20px;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.footer-newsletter-sub {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+.footer-newsletter-form {
+  display: flex;
+  gap: 0;
+  flex: 1;
+  max-width: 460px;
+  min-width: 240px;
+}
+.footer-nl-input {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--white);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  padding: 12px 18px;
+  outline: none;
+  flex: 1;
+  transition: border-color 0.2s ease;
+}
+.footer-nl-input::placeholder { color: rgba(255,255,255,0.35); }
+.footer-nl-input:focus { border-color: var(--gold); }
+.footer-nl-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--accent-red);
+  border: 2px solid var(--accent-red);
+  border-radius: 0 4px 4px 0;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+.footer-nl-btn:hover { background: #8a0b0b; }
+
+/* Copyright row */
+.footer-c3-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-copy {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 400;
+}
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-legal a {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-legal a:hover { color: var(--gold); }
+.footer-legal span { color: rgba(255,255,255,0.2); }
+
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* 2. LAPTOP (1025px – 1280px) */
 @media (max-width: 1280px) {
-  .navbar {
-    width: calc(100% - 60px);
-    padding: 0 24px 0 16px;
-  }
+  .navbar { width: calc(100% - 60px); padding: 0 24px 0 16px; }
   .tours-section { padding: 64px 60px 72px; }
   .tours-grid { max-width: 960px; gap: 28px; }
-  .navbar-logo-text .logo-line2 { font-size: 28px; }
+  .navbar-logo-text .logo-line2 { font-size: 24px; }
+  .footer-c1 { padding: 56px 48px 48px; }
+  .footer-c2 { padding: 48px 48px; }
+  .footer-c3 { padding: 40px 48px 32px; }
 }
 
 @media (max-width: 1100px) {
-  .navbar-menu li a { font-size: 11.5px; padding: 10px 10px; }
+  .navbar-menu li a { font-size: 11px; padding: 10px 10px; }
   .tours-section { padding: 60px 40px 68px; }
+  .footer-c1-inner { gap: 32px; }
+  .footer-c2-inner { gap: 36px; }
 }
 
-
-/* ============================================================
-   3. TABLET LANDSCAPE  (769px – 1024px)
-   ============================================================ */
+/* 3. TABLET LANDSCAPE (769px – 1024px) */
 @media (max-width: 1024px) {
-  :root {
-    --navbar-h: 80px;
-  }
+  :root { --navbar-h: 80px; }
 
-  .navbar {
-    width: calc(100% - 40px);
-    padding: 0 20px 0 14px;
-    height: var(--navbar-h);
-  }
+  .navbar { width: calc(100% - 40px); padding: 0 20px 0 14px; height: var(--navbar-h); }
   .navbar-logo img { height: 64px; width: 64px; }
-  .navbar-logo-text .logo-line1 { font-size: 13px; }
-  .navbar-logo-text .logo-line2 { font-size: 24px; }
+  .navbar-logo-text .logo-line1 { font-size: 12px; }
+  .navbar-logo-text .logo-line2 { font-size: 22px; }
   .navbar-logo-text .logo-line3 { font-size: 10px; }
-  .navbar-menu li a { font-size: 11px; padding: 8px 9px; }
-  .navbar-cta { padding: 8px 14px !important; font-size: 10.5px !important; }
+  .navbar-menu li a { font-size: 10.5px; padding: 8px 9px; }
+  .navbar-cta { padding: 8px 14px !important; font-size: 10px !important; }
 
   .hero { min-height: 520px; }
-  .hero-title { font-size: clamp(34px, 5.5vw, 58px); }
+  .hero-title { font-size: clamp(34px, 5.5vw, 62px); }
+  .hero-subtitle { font-size: clamp(14px, 1.8vw, 18px); }
 
   .tours-section { padding: 56px 32px 64px; }
-  .tours-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 100%;
-  }
+  .tours-grid { grid-template-columns: 1fr 1fr; gap: 24px; max-width: 100%; }
   .tour-card-img-wrap { height: 220px; }
   .tour-card-body { padding: 22px 22px 20px; }
   .tour-card-title { font-size: 19px; }
   .tour-card-desc { font-size: 13.5px; }
+
+  .footer-c1 { padding: 48px 32px 40px; }
+  .footer-c1-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-col-logo { grid-column: 1 / -1; flex-direction: row; justify-content: center; gap: 40px; }
+  .footer-c2 { padding: 44px 32px; }
+  .footer-c3 { padding: 36px 32px 28px; }
+  .footer-newsletter { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .footer-newsletter-form { max-width: 100%; width: 100%; }
 }
 
-
-/* ============================================================
-   4. TABLET PORTRAIT  (600px – 768px)
-   ============================================================ */
+/* 4. TABLET PORTRAIT (600px – 768px) */
 @media (max-width: 768px) {
-  :root {
-    --announce-h: 26px;
-    --navbar-h: 68px;
-  }
+  :root { --announce-h: 26px; --navbar-h: 68px; }
 
-  /* Announcement bar — shorter text on small screens */
   .announcement-bar p { font-size: 9.5px; letter-spacing: 0.1em; }
   .announcement-bar .sep { margin: 0 5px; }
 
-  /* Navbar — hamburger menu */
-  .navbar {
-    width: calc(100% - 24px);
-    padding: 0 16px;
-    height: var(--navbar-h);
-    border-radius: 12px;
-  }
+  .navbar { width: calc(100% - 24px); padding: 0 16px; height: var(--navbar-h); border-radius: 12px; }
   .navbar-logo img { height: 54px; width: 54px; }
   .navbar-logo { gap: 8px; }
   .navbar-logo-text .logo-line1 { font-size: 11px; }
-  .navbar-logo-text .logo-line2 { font-size: 20px; }
+  .navbar-logo-text .logo-line2 { font-size: 19px; }
   .navbar-logo-text .logo-line3 { font-size: 9px; letter-spacing: 0.25em; }
-
   .navbar-menu {
     display: none;
     position: fixed;
     top: calc(var(--announce-h) + var(--navbar-h) + 20px);
-    left: 12px;
-    right: 12px;
+    left: 12px; right: 12px;
     background: rgba(0,0,0,0.95);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -630,59 +978,45 @@ body {
   }
   .navbar-menu.open { display: flex; }
   .navbar-menu li { width: 100%; text-align: center; }
-  .navbar-menu li a {
-    padding: 14px 28px;
-    font-size: 13px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
+  .navbar-menu li a { padding: 14px 28px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .navbar-menu li:last-child a { border-bottom: none; }
-  .navbar-cta {
-    margin: 8px 24px 0 !important;
-    border-radius: 8px !important;
-    padding: 12px 28px !important;
-    font-size: 12px !important;
-    display: block;
-  }
+  .navbar-cta { margin: 8px 24px 0 !important; border-radius: 8px !important; padding: 12px 28px !important; font-size: 12px !important; display: block; }
   .navbar-toggle { display: flex; }
 
-  /* Hero */
   .hero { height: 100svh; min-height: 500px; }
   .hero-img { object-position: center 35%; }
   .hero-content { padding: 0 20px; }
-  .hero-title { font-size: clamp(30px, 7.5vw, 48px); }
+  .hero-title { font-size: clamp(30px, 8vw, 52px); }
   .hero-subtitle { font-size: 15px; line-height: 1.65; }
-  .hero-eyebrow { font-size: 10px; letter-spacing: 0.25em; }
-  .btn-primary, .btn-secondary { padding: 13px 28px; font-size: 11.5px; }
 
-  /* Tours */
   .tours-section { padding: 48px 20px 56px; }
   .tours-section-title { font-size: 28px; }
   .tours-section-subtitle { font-size: 15px; }
   .tours-stars span { font-size: 24px; }
-  .tours-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    max-width: 560px;
-    margin: 0 auto;
-  }
+  .tours-grid { grid-template-columns: 1fr; gap: 24px; max-width: 560px; margin: 0 auto; }
   .tour-card-img-wrap { height: 240px; }
   .tour-card-body { padding: 22px 20px 20px; }
   .tour-card-title { font-size: 20px; }
   .tour-card-desc { font-size: 14px; }
   .tour-card-meta { gap: 12px; }
   .tour-meta-badge { padding: 9px 14px; }
-  .meta-value { font-size: 14px; }
+
+  /* Footer */
+  .footer-c1 { padding: 40px 20px 36px; }
+  .footer-c1-inner { grid-template-columns: 1fr; gap: 36px; }
+  .footer-col-logo { flex-direction: column; align-items: center; }
+  .footer-c2 { padding: 40px 20px; }
+  .footer-c2-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-form-row { grid-template-columns: 1fr; }
+  .footer-map-wrap { height: 260px; }
+  .footer-c3 { padding: 36px 20px 28px; }
+  .footer-newsletter { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .footer-newsletter-form { max-width: 100%; width: 100%; }
 }
 
-
-/* ============================================================
-   5. MOBILE LANDSCAPE  (≤ 767px, orientation: landscape)
-   ============================================================ */
+/* 5. MOBILE LANDSCAPE (≤ 767px, landscape) */
 @media (max-width: 767px) and (orientation: landscape) {
-  :root {
-    --announce-h: 24px;
-    --navbar-h: 56px;
-  }
+  :root { --announce-h: 24px; --navbar-h: 56px; }
 
   .announcement-bar { padding: 5px 16px; }
   .announcement-bar p { font-size: 9px; }
@@ -694,7 +1028,6 @@ body {
   .navbar-logo-text .logo-line3 { display: none; }
   .navbar-menu {
     top: calc(var(--announce-h) + var(--navbar-h) + 10px);
-    /* Two-column menu in landscape to save vertical space */
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -705,145 +1038,99 @@ body {
   .navbar-menu li a { padding: 10px 14px; font-size: 11.5px; border-bottom: none; }
   .navbar-cta { margin: 4px 8px 0 !important; }
 
-  /* Hero — shorter in landscape */
-  .hero {
-    height: 100svh;
-    min-height: 300px;
-  }
+  .hero { height: 100svh; min-height: 300px; }
   .hero-content { padding: 0 16px; }
-  .hero-eyebrow { font-size: 9px; margin-bottom: 8px; }
-  .hero-title { font-size: clamp(22px, 5.5vw, 36px); margin-bottom: 10px; }
-  .hero-subtitle { font-size: 13px; margin-bottom: 20px; line-height: 1.55; }
+  .hero-title { font-size: clamp(22px, 5.5vw, 40px); margin-bottom: 10px; }
+  .hero-subtitle { font-size: 13px; margin-bottom: 18px; line-height: 1.55; }
   .hero-buttons { gap: 10px; }
   .btn-primary, .btn-secondary { padding: 11px 22px; font-size: 11px; }
-  .hero-scroll { bottom: 14px; }
 
-  /* Tours */
   .tours-section { padding: 36px 20px 44px; }
-  .tours-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    max-width: 100%;
-  }
+  .tours-grid { grid-template-columns: 1fr 1fr; gap: 18px; max-width: 100%; }
   .tour-card-img-wrap { height: 180px; }
   .tour-card-body { padding: 16px 16px 14px; }
-  .tour-card-title { font-size: 16px; margin-bottom: 8px; }
+  .tour-card-title { font-size: 16px; margin-bottom: 6px; }
   .tour-card-desc { font-size: 12.5px; line-height: 1.6; margin-bottom: 14px; }
   .tour-card-meta { gap: 8px; margin-bottom: 14px; }
   .tour-meta-badge { padding: 7px 10px; min-width: 0; }
   .meta-value { font-size: 12px; }
   .tour-card-buttons { gap: 8px; }
   .tour-btn-outline, .tour-btn-solid { padding: 10px 12px; font-size: 11px; }
+
+  .footer-c1 { padding: 36px 20px 30px; }
+  .footer-c1-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-col-logo { grid-column: 1 / -1; }
+  .footer-c2 { padding: 36px 20px; }
+  .footer-c2-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-form-row { grid-template-columns: 1fr 1fr; }
+  .footer-map-wrap { height: 220px; }
+  .footer-c3 { padding: 28px 20px 20px; }
 }
 
-
-/* ============================================================
-   6. MOBILE PORTRAIT  (≤ 479px)
-   ============================================================ */
+/* 6. MOBILE PORTRAIT (≤ 479px) */
 @media (max-width: 479px) {
-  :root {
-    --announce-h: 24px;
-    --navbar-h: 60px;
-  }
+  :root { --announce-h: 24px; --navbar-h: 60px; }
 
-  /* Announcement — hide separators on very small screens */
   .announcement-bar { padding: 5px 12px; }
   .announcement-bar p { font-size: 8.5px; letter-spacing: 0.08em; }
   .announcement-bar .sep { margin: 0 4px; }
 
-  /* Navbar */
-  .navbar {
-    width: calc(100% - 16px);
-    padding: 0 14px;
-    height: var(--navbar-h);
-    border-radius: 10px;
-    top: calc(var(--announce-h) + 8px);
-  }
+  .navbar { width: calc(100% - 16px); padding: 0 14px; height: var(--navbar-h); border-radius: 10px; top: calc(var(--announce-h) + 8px); }
   .navbar-logo img { height: 46px; width: 46px; }
   .navbar-logo { gap: 7px; }
   .navbar-logo-text .logo-line1 { font-size: 10px; letter-spacing: 0.1em; }
   .navbar-logo-text .logo-line2 { font-size: 18px; letter-spacing: 0.06em; }
   .navbar-logo-text .logo-line3 { font-size: 8px; letter-spacing: 0.2em; }
-  .navbar-menu {
-    top: calc(var(--announce-h) + var(--navbar-h) + 14px);
-    left: 8px;
-    right: 8px;
-    border-radius: 12px;
-    padding: 10px 0 14px;
-  }
+  .navbar-menu { top: calc(var(--announce-h) + var(--navbar-h) + 14px); left: 8px; right: 8px; border-radius: 12px; padding: 10px 0 14px; }
   .navbar-menu li a { padding: 13px 20px; font-size: 12.5px; }
   .navbar-cta { margin: 8px 16px 0 !important; }
 
-  /* Hero */
   .hero { height: 100svh; min-height: 480px; }
   .hero-img { object-position: center 30%; }
   .hero-content { padding: 0 16px; }
-  .hero-eyebrow { font-size: 9px; letter-spacing: 0.22em; margin-bottom: 10px; }
-  .hero-title {
-    font-size: clamp(26px, 9vw, 40px);
-    margin-bottom: 14px;
-    line-height: 1.15;
-  }
-  .hero-subtitle {
-    font-size: 13.5px;
-    line-height: 1.65;
-    margin-bottom: 28px;
-    padding: 0 4px;
-  }
-  /* Subtitle line breaks — stack on mobile */
+  /* Mobile portrait H1 — 5px larger than base clamp minimum */
+  .hero-title { font-size: clamp(33px, 9.5vw, 46px); margin-bottom: 14px; line-height: 1.1; }
+  .hero-subtitle { font-size: 14px; line-height: 1.65; margin-bottom: 28px; padding: 0 4px; }
   .hero-subtitle br { display: none; }
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-  .btn-primary, .btn-secondary {
-    width: 100%;
-    max-width: 280px;
-    padding: 14px 20px;
-    font-size: 11.5px;
-    text-align: center;
-  }
-  .hero-scroll { bottom: 20px; }
+  .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 280px; padding: 14px 20px; font-size: 11.5px; text-align: center; }
 
-  /* Tours */
   .tours-section { padding: 40px 16px 48px; }
   .tours-section-title { font-size: 24px; line-height: 1.25; }
   .tours-section-subtitle { font-size: 14px; line-height: 1.65; }
   .tours-stars span { font-size: 22px; }
   .tours-section-header { margin-bottom: 32px; }
-  .tours-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 100%;
-  }
+  .tours-grid { grid-template-columns: 1fr; gap: 20px; max-width: 100%; }
   .tour-card { border-radius: 10px; }
   .tour-card-img-wrap { height: 200px; }
   .tour-card-body { padding: 18px 16px 16px; }
-  .tour-card-title { font-size: 18px; margin-bottom: 8px; }
+  .tour-card-title { font-size: 18px; margin-bottom: 6px; }
   .tour-card-desc { font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
-  .tour-card-meta {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
+  .tour-card-meta { flex-direction: column; gap: 10px; margin-bottom: 18px; }
   .tour-meta-badge { min-width: 0; width: 100%; }
-  .meta-value { font-size: 14px; }
   .tour-card-buttons { flex-direction: column; gap: 10px; }
-  .tour-btn-outline, .tour-btn-solid {
-    width: 100%;
-    padding: 14px 20px;
-    font-size: 12.5px;
-  }
+  .tour-btn-outline, .tour-btn-solid { width: 100%; padding: 14px 20px; font-size: 12.5px; }
+
+  .footer-c1 { padding: 36px 16px 32px; }
+  .footer-c1-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-col-logo { flex-direction: column; }
+  .footer-c2 { padding: 36px 16px; }
+  .footer-c2-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-form-row { grid-template-columns: 1fr; }
+  .footer-map-wrap { height: 230px; }
+  .footer-c3 { padding: 32px 16px 24px; }
+  .footer-newsletter { flex-direction: column; gap: 16px; }
+  .footer-newsletter-form { flex-direction: column; max-width: 100%; width: 100%; }
+  .footer-nl-input { border-radius: 4px; border-right: 1px solid rgba(255,255,255,0.15); }
+  .footer-nl-btn { border-radius: 4px; width: 100%; }
+  .footer-c3-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
 
-/* ============================================================
-   VERY SMALL PHONES  (≤ 360px)
-   ============================================================ */
+/* VERY SMALL (≤ 360px) */
 @media (max-width: 360px) {
   .navbar-logo-text .logo-line2 { font-size: 16px; }
   .navbar-logo img { height: 40px; width: 40px; }
-  .hero-title { font-size: clamp(22px, 8.5vw, 32px); }
+  .hero-title { font-size: clamp(28px, 8.5vw, 34px); }
   .tours-section { padding: 32px 12px 40px; }
   .tour-card-body { padding: 14px 12px 14px; }
 }
