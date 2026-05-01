@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Lady Luck Las Vegas Tours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .legal-page {
+      background: #fff;
+      min-height: 100vh;
+      padding: calc(var(--announce-h) + var(--navbar-h) + 60px) 0 80px;
+    }
+    .legal-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .legal-inner h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 42px;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+    .legal-inner .legal-updated {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 40px;
+      display: block;
+    }
+    .legal-inner h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: 20px;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 36px 0 12px;
+    }
+    .legal-inner p, .legal-inner li {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .legal-inner ul {
+      padding-left: 24px;
+      margin-bottom: 14px;
+    }
+    .legal-inner a { color: #B00F0F; text-decoration: none; }
+    .legal-inner a:hover { text-decoration: underline; }
+    .legal-divider { border: none; border-top: 1px solid #eee; margin: 40px 0; }
+    @media (max-width: 600px) {
+      .legal-inner { padding: 0 20px; }
+      .legal-inner h1 { font-size: 30px; }
+    }
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <p>Free Welcome Drink <span class="sep">•</span> Complimentary Photo Keepsake <span class="sep">•</span> For Every Guest</p>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">
+      <img src="logo.png" alt="Lady Luck Las Vegas Tours" />
+      <div class="navbar-logo-text">
+        <span class="logo-line1">Lady Luck</span>
+        <span class="logo-line2">Las Vegas</span>
+        <span class="logo-line3">Tours</span>
+      </div>
+    </a>
+    <div class="navbar-right-controls">
+      <a href="contact-us.html" class="navbar-mobile-cta">Book Now</a>
+      <div class="navbar-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <ul class="navbar-menu" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="vegas-resources.html">Vegas Resources</a></li>
+      <li><a href="who-we-are.html">Who We Are</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+      <li><a href="contact-us.html" class="navbar-cta">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 10); });
+    navToggle.addEventListener('click', () => { navMenu.classList.toggle('open'); navToggle.classList.toggle('active'); });
+    navMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { navMenu.classList.remove('open'); navToggle.classList.remove('active'); }));
+    document.addEventListener('click', (e) => { if (!navbar.contains(e.target)) { navMenu.classList.remove('open'); navToggle.classList.remove('active'); } });
+  </script>
+
+  <!-- CONTENT -->
+  <div class="legal-page">
+    <div class="legal-inner">
+      <h1>Privacy Policy</h1>
+      <span class="legal-updated">Last updated: January 1, 2026</span>
+
+      <p>Lady Luck Las Vegas Tours ("we," "our," or "us") is committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or book one of our tours.</p>
+
+      <hr class="legal-divider" />
+
+      <h2>Information We Collect</h2>
+      <p>We may collect personal information that you voluntarily provide to us when you:</p>
+      <ul>
+        <li>Fill out a contact or booking form on our website</li>
+        <li>Subscribe to our newsletter</li>
+        <li>Communicate with us by email, phone, or other means</li>
+        <li>Make a tour reservation or purchase</li>
+      </ul>
+      <p>The personal information we collect may include your name, email address, phone number, mailing address, and payment information where applicable.</p>
+
+      <h2>How We Use Your Information</h2>
+      <p>We use the information we collect for the following purposes:</p>
+      <ul>
+        <li>To process and fulfill your tour bookings and reservations</li>
+        <li>To send you confirmation emails, reminders, and tour-related communications</li>
+        <li>To respond to your inquiries and provide customer support</li>
+        <li>To send you our newsletter and promotional content (only if you have opted in)</li>
+        <li>To improve our website, services, and customer experience</li>
+        <li>To comply with applicable legal obligations</li>
+      </ul>
+
+      <h2>Sharing Your Information</h2>
+      <p>We do not sell, trade, or rent your personal information to third parties. We may share your information in the following limited circumstances:</p>
+      <ul>
+        <li><strong>Service Providers:</strong> We may share your information with trusted third-party vendors who assist us in operating our website or conducting our business (e.g., payment processors, email marketing platforms).</li>
+        <li><strong>Legal Requirements:</strong> We may disclose your information when required to do so by law or in response to valid legal process.</li>
+        <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</li>
+      </ul>
+
+      <h2>Cookies and Tracking Technologies</h2>
+      <p>Our website may use cookies and similar tracking technologies to enhance your browsing experience, analyze site traffic, and understand user behavior. You may disable cookies through your browser settings; however, doing so may affect certain features of our website.</p>
+
+      <h2>Data Security</h2>
+      <p>We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2>Data Retention</h2>
+      <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, or as required by law. When your information is no longer needed, we will securely delete or anonymize it.</p>
+
+      <h2>Your Rights</h2>
+      <p>Depending on your location, you may have certain rights regarding your personal information, including the right to access, correct, or delete your data. To exercise any of these rights, please contact us at the information below.</p>
+
+      <h2>Third-Party Links</h2>
+      <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of those sites and encourage you to review their privacy policies independently.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Our website is not directed to children under the age of 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. Your continued use of our website following any changes constitutes your acceptance of the updated policy.</p>
+
+      <h2>Contact Us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:hello@ladylucklvtours.com">hello@ladylucklvtours.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+17025550199">(702) 555-0199</a></li>
+        <li><strong>Address:</strong> 3570 Las Vegas Blvd S, Las Vegas, NV 89109</li>
+      </ul>
+
+      <hr class="legal-divider" />
+      <p><a href="index.html">← Back to Home</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

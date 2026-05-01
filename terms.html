@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Lady Luck Las Vegas Tours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .legal-page {
+      background: #fff;
+      min-height: 100vh;
+      padding: calc(var(--announce-h) + var(--navbar-h) + 60px) 0 80px;
+    }
+    .legal-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .legal-inner h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 42px;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+    .legal-inner .legal-updated {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 40px;
+      display: block;
+    }
+    .legal-inner h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: 20px;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 36px 0 12px;
+    }
+    .legal-inner p, .legal-inner li {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .legal-inner ul {
+      padding-left: 24px;
+      margin-bottom: 14px;
+    }
+    .legal-inner a { color: #B00F0F; text-decoration: none; }
+    .legal-inner a:hover { text-decoration: underline; }
+    .legal-divider { border: none; border-top: 1px solid #eee; margin: 40px 0; }
+    @media (max-width: 600px) {
+      .legal-inner { padding: 0 20px; }
+      .legal-inner h1 { font-size: 30px; }
+    }
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <p>Free Welcome Drink <span class="sep">•</span> Complimentary Photo Keepsake <span class="sep">•</span> For Every Guest</p>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">
+      <img src="logo.png" alt="Lady Luck Las Vegas Tours" />
+      <div class="navbar-logo-text">
+        <span class="logo-line1">Lady Luck</span>
+        <span class="logo-line2">Las Vegas</span>
+        <span class="logo-line3">Tours</span>
+      </div>
+    </a>
+    <div class="navbar-right-controls">
+      <a href="contact-us.html" class="navbar-mobile-cta">Book Now</a>
+      <div class="navbar-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <ul class="navbar-menu" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="experiences.html">Experiences</a></li>
+      <li><a href="vegas-resources.html">Vegas Resources</a></li>
+      <li><a href="who-we-are.html">Who We Are</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+      <li><a href="contact-us.html" class="navbar-cta">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 10); });
+    navToggle.addEventListener('click', () => { navMenu.classList.toggle('open'); navToggle.classList.toggle('active'); });
+    navMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { navMenu.classList.remove('open'); navToggle.classList.remove('active'); }));
+    document.addEventListener('click', (e) => { if (!navbar.contains(e.target)) { navMenu.classList.remove('open'); navToggle.classList.remove('active'); } });
+  </script>
+
+  <!-- CONTENT -->
+  <div class="legal-page">
+    <div class="legal-inner">
+      <h1>Terms of Service</h1>
+      <span class="legal-updated">Last updated: January 1, 2026</span>
+
+      <p>Welcome to Lady Luck Las Vegas Tours. By accessing our website or booking any of our tour experiences, you agree to be bound by the following Terms of Service. Please read them carefully before proceeding.</p>
+
+      <hr class="legal-divider" />
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By using our website or services in any manner, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service, as well as our Privacy Policy. If you do not agree to these terms, please do not use our website or services.</p>
+
+      <h2>2. Tour Bookings and Reservations</h2>
+      <p>All tour bookings are subject to availability. A reservation is considered confirmed only upon receipt of full or partial payment as specified at the time of booking and the issuance of a confirmation email from Lady Luck Las Vegas Tours.</p>
+      <ul>
+        <li>Prices are listed in US dollars and are subject to change without notice prior to booking confirmation.</li>
+        <li>We reserve the right to modify tour itineraries due to weather, safety concerns, or other circumstances beyond our control.</li>
+        <li>Guests are responsible for arriving at the designated meeting point on time. Late arrivals may forfeit their reservation without refund.</li>
+      </ul>
+
+      <h2>3. Cancellations and Refunds</h2>
+      <p>We understand that plans can change. Our cancellation policy is as follows:</p>
+      <ul>
+        <li><strong>72+ hours before tour:</strong> Full refund, minus a 5% processing fee.</li>
+        <li><strong>24–72 hours before tour:</strong> 50% refund.</li>
+        <li><strong>Less than 24 hours before tour:</strong> No refund. You may reschedule at no additional charge, subject to availability.</li>
+        <li><strong>No-shows:</strong> No refund or reschedule.</li>
+      </ul>
+      <p>In the event that Lady Luck Las Vegas Tours cancels a tour due to circumstances within our control, guests will receive a full refund or the option to reschedule at no charge.</p>
+
+      <h2>4. Participant Requirements</h2>
+      <p>By booking a tour, you confirm that all participants meet any applicable age, health, or physical requirements for the selected experience. Lady Luck Las Vegas Tours reserves the right to refuse participation to any guest who:</p>
+      <ul>
+        <li>Appears to be under the influence of alcohol or controlled substances</li>
+        <li>Exhibits behavior that is disruptive, unsafe, or disrespectful to other guests or guides</li>
+        <li>Does not meet the physical or age requirements for the tour</li>
+      </ul>
+      <p>No refund will be issued to guests removed from a tour for conduct violations.</p>
+
+      <h2>5. Liability Waiver</h2>
+      <p>Participation in our tours involves inherent risks. By booking with Lady Luck Las Vegas Tours, you agree to release and hold harmless Lady Luck Las Vegas Tours, its owners, employees, guides, and agents from any and all claims, damages, losses, costs, or expenses arising from your participation in our tours, to the fullest extent permitted by law.</p>
+      <p>Lady Luck Las Vegas Tours is not responsible for lost, stolen, or damaged personal property during any tour experience.</p>
+
+      <h2>6. Photography and Media</h2>
+      <p>By participating in our tours, you grant Lady Luck Las Vegas Tours the right to photograph or record you during the tour for promotional, marketing, or educational purposes. If you do not wish to be photographed, please notify your guide at the start of the tour.</p>
+
+      <h2>7. Intellectual Property</h2>
+      <p>All content on this website — including text, images, logos, design elements, and tour descriptions — is the exclusive property of Lady Luck Las Vegas Tours and is protected by applicable copyright and intellectual property laws. You may not reproduce, distribute, or use any content from this website without our prior written consent.</p>
+
+      <h2>8. Third-Party Services</h2>
+      <p>Some of our tours may involve third-party vendors, attractions, or services. Lady Luck Las Vegas Tours is not responsible for the actions, policies, or experiences provided by third parties and does not guarantee the availability or quality of third-party services.</p>
+
+      <h2>9. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, Lady Luck Las Vegas Tours shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our website or participation in our tours, even if we have been advised of the possibility of such damages.</p>
+
+      <h2>10. Governing Law</h2>
+      <p>These Terms of Service shall be governed by and construed in accordance with the laws of the State of Nevada, without regard to its conflict of law provisions. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in Clark County, Nevada.</p>
+
+      <h2>11. Changes to These Terms</h2>
+      <p>We reserve the right to modify these Terms of Service at any time. Changes will be posted on this page with an updated "Last updated" date. Your continued use of our website or services following any changes constitutes your acceptance of the revised terms.</p>
+
+      <h2>12. Contact Us</h2>
+      <p>If you have any questions about these Terms of Service, please reach out to us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:hello@ladylucklvtours.com">hello@ladylucklvtours.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+17025550199">(702) 555-0199</a></li>
+        <li><strong>Address:</strong> 3570 Las Vegas Blvd S, Las Vegas, NV 89109</li>
+      </ul>
+
+      <hr class="legal-divider" />
+      <p><a href="index.html">← Back to Home</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
