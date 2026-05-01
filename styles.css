@@ -35,33 +35,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================================
-   ANNOUNCEMENT BAR
+   ANNOUNCEMENT BAR — Scrolling Marquee
    ============================================================ */
 .announcement-bar {
   width: 100%;
   background: var(--black);
-  padding: 7px 20px;
-  text-align: center;
+  padding: 0;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 1100;
   height: var(--announce-h);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
-.announcement-bar p {
+
+/* Marquee track — holds two copies side by side for seamless loop */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* Each content block */
+.marquee-content {
   font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--white);
-  line-height: 1;
+  line-height: var(--announce-h);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding-right: 60px;
   font-weight: 500;
 }
-.announcement-bar .sep { color: var(--gold); margin: 0 8px; }
+
+.announcement-bar .sep { color: var(--gold); margin: 0 10px; }
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
 /* ============================================================
    HERO
@@ -176,45 +191,56 @@ h1, h2, h3, h4, h5, h6 {
 }
 .navbar-cta:hover { background: #8a0b0b !important; }
 
-/* Right controls wrapper (hamburger + mobile CTA) */
+/* Right controls wrapper — hidden on desktop */
 .navbar-right-controls {
   display: none;
   align-items: center;
-  gap: 10px;
 }
 
-/* Mobile Book Now button (shown only on small screens) */
+/* Hamburger toggle — vertical stack with Book Now BELOW bars */
+.navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+  padding: 6px 8px;
+  z-index: 10;
+}
+/* The three bars */
+.navbar-toggle span {
+  display: block;
+  width: 26px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  flex-shrink: 0;
+}
+/* Animated X */
+.navbar-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar-toggle.active span:nth-child(2) { opacity: 0; }
+.navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Book Now — BELOW the hamburger bars */
 .navbar-mobile-cta {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white);
   background: var(--accent-red);
-  padding: 8px 16px;
-  border-radius: 6px;
+  padding: 5px 10px;
+  border-radius: 4px;
   text-decoration: none;
   border: 1px solid rgba(255,255,255,0.2);
   transition: background 0.2s ease;
   white-space: nowrap;
+  margin-top: 2px;
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 .navbar-mobile-cta:hover { background: #8a0b0b; }
-
-/* Hamburger */
-.navbar-toggle {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer; gap: 5px; padding: 8px; z-index: 10;
-}
-.navbar-toggle span {
-  display: block; width: 26px; height: 2px;
-  background: var(--white); border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.navbar-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.navbar-toggle.active span:nth-child(2) { opacity: 0; }
-.navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ============================================================
    HERO CONTENT
@@ -659,6 +685,8 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-logo-text .logo-line2 { font-size: 22px; }
   .navbar-logo-text .logo-line3 { font-size: 9.5px; letter-spacing: 0.25em; }
   .navbar-right-controls { display: flex; }
+  .navbar-toggle { padding: 4px 6px; gap: 5px; }
+  .navbar-mobile-cta { font-size: 9.5px; padding: 5px 12px; margin-top: 4px; }
   .navbar-menu {
     display: none;
     position: fixed;
@@ -675,7 +703,6 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-menu li { width: 100%; text-align: center; }
   .navbar-menu li a { padding: 14px 28px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .navbar-menu li:last-child a { border-bottom: none; }
-  /* Hide the Book Now inside menu on tablet portrait since it's in right-controls */
   .navbar-menu .navbar-cta { display: none; }
 
   /* Hero */
@@ -745,8 +772,9 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-logo-text .logo-line1 { font-size: 11px; }
   .navbar-logo-text .logo-line2 { font-size: 19px; }
   .navbar-logo-text .logo-line3 { display: none; }
-  .navbar-right-controls { display: flex; gap: 8px; }
-  .navbar-mobile-cta { font-size: 10.5px; padding: 7px 13px; }
+  .navbar-right-controls { display: flex; }
+  .navbar-toggle { padding: 4px 6px; gap: 4px; }
+  .navbar-mobile-cta { font-size: 8.5px; padding: 4px 10px; margin-top: 3px; }
   .navbar-menu {
     top: calc(var(--announce-h) + var(--navbar-h) + 10px);
     flex-direction: row; flex-wrap: wrap;
@@ -815,8 +843,9 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-logo-text .logo-line1 { font-size: 11px; letter-spacing: 0.1em; }
   .navbar-logo-text .logo-line2 { font-size: 20px; letter-spacing: 0.06em; }
   .navbar-logo-text .logo-line3 { font-size: 8.5px; letter-spacing: 0.2em; }
-  .navbar-right-controls { display: flex; gap: 8px; }
-  .navbar-mobile-cta { font-size: 10px; padding: 7px 12px; }
+  .navbar-right-controls { display: flex; }
+  .navbar-toggle { padding: 4px 6px; gap: 4px; }
+  .navbar-mobile-cta { font-size: 8.5px; padding: 5px 10px; margin-top: 3px; }
   .navbar-menu {
     top: calc(var(--announce-h) + var(--navbar-h) + 14px);
     left: 8px; right: 8px; border-radius: 12px; padding: 10px 0 14px;
