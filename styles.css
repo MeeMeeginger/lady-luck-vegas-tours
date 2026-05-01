@@ -790,7 +790,16 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-menu .navbar-cta { display: none; }
 
   .hero { height: 100svh; min-height: 300px; }
-  .hero-content { padding: 0 16px; }
+  .hero-content {
+    top: auto; bottom: auto;
+    transform: none;
+    left: 0; right: 0;
+    position: absolute;
+    padding: calc(var(--announce-h) + var(--navbar-h) + 28px) 16px 32px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+  }
   .hero-title { font-size: clamp(22px, 5.5vw, 40px); margin-bottom: 10px; }
   .hero-subtitle { font-size: 14px; margin-bottom: 18px; line-height: 1.55; }
   .hero-buttons { gap: 10px; }
@@ -860,9 +869,20 @@ h1, h2, h3, h4, h5, h6 {
 
   .hero { height: 100svh; min-height: 480px; }
   .hero-img { object-position: center 30%; }
-  .hero-content { padding: 0 16px; }
+  .hero-content {
+    top: auto; bottom: auto;
+    transform: none;
+    left: 0; right: 0;
+    position: absolute;
+    padding: calc(var(--announce-h) + var(--navbar-h) + 36px) 16px 32px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+  }
   /* Mobile portrait H1 — +5px larger */
   .hero-title { font-size: clamp(36px, 9.5vw, 48px); margin-bottom: 14px; line-height: 1.08; }
+  /* Smaller Book Now button on mobile portrait */
+  .navbar-mobile-cta { font-size: 7.5px; padding: 4px 8px; letter-spacing: 0.08em; }
   .hero-subtitle { font-size: 15px; line-height: 1.65; margin-bottom: 28px; padding: 0 4px; }
   .hero-subtitle br { display: none; }
   .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
